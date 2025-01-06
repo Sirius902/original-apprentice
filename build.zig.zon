@@ -1,6 +1,7 @@
 .{
     .name = "original-apprentice",
     .version = "0.0.1",
+    .minimum_zig_version = "0.13.0",
     .dependencies = .{
         // See `zig fetch --save <url>` for a command-line interface for adding dependencies.
         //.example = .{
