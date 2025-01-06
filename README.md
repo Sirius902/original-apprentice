@@ -8,6 +8,11 @@ prior to the
 [Official Oblivion Patch](https://en.uesp.net/wiki/Oblivion:Patch)
 version 1.1.511.
 
+## Installing
+
+Place `original-apprentice.dll` in the `Data/OBSE/Plugins` subdirectory of your
+Oblivion installation.
+
 ## Building
 
 * Install [Zig](https://ziglang.org/) version 0.13.0.
