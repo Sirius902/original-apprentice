@@ -16,4 +16,4 @@ jobs:
       - uses: actions/upload-artifact@v6
         with:
           name: original-apprentice
-          path: zig-out/bin/
+          path: zig-out/bin
