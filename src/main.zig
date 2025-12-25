@@ -1,5 +1,5 @@
 const std = @import("std");
-const c = @import("c.zig");
+const c = @import("c.zig").c;
 const OBSEInterface = @import("obse.zig").OBSEInterface;
 const PluginInfo = @import("obse.zig").PluginInfo;
 
@@ -7,7 +7,7 @@ pub fn DllMain(
     module: std.os.windows.HINSTANCE,
     reason: u32,
     reserved: *anyopaque,
-) callconv(std.os.windows.WINAPI) c_int {
+) callconv(.winapi) c_int {
     _ = module;
     _ = reason;
     _ = reserved;
@@ -61,7 +61,7 @@ fn writeRelJump(src: usize, target: usize) void {
 const magic_resist_no_apply: usize = 0x6A2933;
 const magic_resist_apply: usize = 0x6A2903;
 
-fn magicResistHook() callconv(.Naked) noreturn {
+fn magicResistHook() callconv(.naked) noreturn {
     asm volatile (
         \\movl (%esi), %eax
         \\movl 0x18(%eax), %edx

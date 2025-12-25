@@ -15,6 +15,6 @@ Oblivion installation.
 
 ## Building
 
-* Install [Zig](https://ziglang.org/) version 0.13.0.
+* Install [Zig](https://ziglang.org/) with at least version 0.14.0.
 * Run `zig build -Doptimize=ReleaseSafe` in the project directory.
 * The OBSE plugin can now be found at `zig-out/bin/original-apprentice.dll`.

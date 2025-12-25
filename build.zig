@@ -9,21 +9,23 @@ pub fn build(b: *std.Build) void {
     });
     const optimize = b.standardOptimizeOption(.{});
 
-    const plugin = b.addSharedLibrary(.{
-        .name = "original-apprentice",
+    const mod = b.addModule("original_apprentice", .{
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
-        // NOTE(Sirius902) Not sure why but the compiler cries if we don't link libc.
         .link_libc = true,
+    });
+
+    const plugin = b.addLibrary(.{
+        .name = "original-apprentice",
+        .root_module = mod,
+        .linkage = .dynamic,
     });
 
     b.installArtifact(plugin);
 
     const plugin_unit_tests = b.addTest(.{
-        .root_source_file = b.path("src/main.zig"),
-        .target = target,
-        .optimize = optimize,
+        .root_module = mod,
     });
 
     const run_plugin_unit_tests = b.addRunArtifact(plugin_unit_tests);
