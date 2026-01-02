@@ -18,7 +18,7 @@
       perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
 
-        devShells.default = pkgs.mkShell.override {stdenv = pkgs.stdenvNoCC;} {
+        devShells.default = pkgs.mkShellNoCC {
           packages = [
             pkgs.zig
             pkgs.zls
